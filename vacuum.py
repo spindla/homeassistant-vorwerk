@@ -6,6 +6,7 @@ from typing import Any
 
 from pybotvac import Robot
 from pybotvac.exceptions import NeatoRobotException
+from homeassistant.components.vacuum import VacuumEntityFeature
 import voluptuous as vol
 
 from homeassistant.components.vacuum import (
@@ -47,14 +48,14 @@ _LOGGER = logging.getLogger(__name__)
 
 
 SUPPORT_VORWERK = (
-    SUPPORT_BATTERY
-    | SUPPORT_PAUSE
-    | SUPPORT_RETURN_HOME
-    | SUPPORT_STOP
-    | SUPPORT_START
-    | SUPPORT_CLEAN_SPOT
-    | SUPPORT_STATE
-    | SUPPORT_LOCATE
+    VacuumEntityFeature.BATTERY
+    | VacuumEntityFeature.PAUSE
+    | VacuumEntityFeature.RETURN_HOME
+    | VacuumEntityFeature.STOP
+    | VacuumEntityFeature.START
+    | VacuumEntityFeature.CLEAN_SPOT
+    | VacuumEntityFeature.STATE
+    | VacuumEntityFeature.LOCATE
 )
 
 
