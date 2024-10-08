@@ -15,14 +15,6 @@ from homeassistant.components.vacuum import (
     STATE_DOCKED,
     STATE_IDLE,
     STATE_PAUSED,
-    SUPPORT_BATTERY,
-    SUPPORT_CLEAN_SPOT,
-    SUPPORT_LOCATE,
-    SUPPORT_PAUSE,
-    SUPPORT_RETURN_HOME,
-    SUPPORT_START,
-    SUPPORT_STATE,
-    SUPPORT_STOP,
     StateVacuumEntity,
 )
 from homeassistant.const import ATTR_MODE
