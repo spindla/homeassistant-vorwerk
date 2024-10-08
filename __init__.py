@@ -122,7 +122,7 @@ def _create_coordinator(hass: HomeAssistant, robot_state: VorwerkState) -> DataU
     )
 
 
-async def _async_create_robots(hass, robot_confs):
+async def _async_create_robots(hass: HomeAssistant, robot_confs):
     def create_robot(config):
         return Robot(
             serial=config[VORWERK_ROBOT_SERIAL],
@@ -146,7 +146,6 @@ async def _async_create_robots(hass, robot_confs):
         _LOGGER.error("Failed to connect to robots: %s", ex)
         raise ConfigEntryNotReady from ex
     return robots
-
 
 async def _async_create_robots(hass: HomeAssistant, robot_confs):
     """Unload config entry."""
