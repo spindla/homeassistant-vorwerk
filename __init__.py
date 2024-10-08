@@ -150,7 +150,7 @@ async def _async_create_robots(hass, robot_confs):
     return robots
 
 
-async def async_unload_entry(hass: HomeAssistantType, entry: ConfigEntry) -> bool:
+async def async_unload_entry(hass: HomeAssistant , entry: ConfigEntry) -> bool:
     """Unload config entry."""
     unload_ok: bool = all(
         await asyncio.gather(
