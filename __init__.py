@@ -22,8 +22,9 @@ from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry
 from homeassistant.exceptions import ConfigEntryNotReady
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.entity import DeviceInfo
-from homeassistant.helpers.typing import ConfigType, HomeAssistantType
+from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
+from homeassistant.core import HomeAssistant 
 
 from .const import (
     ACTION,
@@ -70,7 +71,7 @@ CONFIG_SCHEMA = vol.Schema(
 )
 
 
-async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
+async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up the Vorwerk component."""
     hass.data[VORWERK_DOMAIN] = {}
 
@@ -86,7 +87,7 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
     return True
 
 
-async def async_setup_entry(hass: HomeAssistantType, entry: ConfigEntry) -> bool:
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up config entry."""
     robots = await _async_create_robots(hass, entry.data[VORWERK_ROBOTS])
 
@@ -108,7 +109,7 @@ async def async_setup_entry(hass: HomeAssistantType, entry: ConfigEntry) -> bool
 
 
 def _create_coordinator(
-    hass: HomeAssistantType, robot_state: VorwerkState
+    hass: HomeAssistant, robot_state: VorwerkState
 ) -> DataUpdateCoordinator:
     async def async_update_data():
         """Fetch data from API endpoint."""
